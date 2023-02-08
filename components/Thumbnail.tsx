@@ -3,6 +3,8 @@ import Image from "next/image";
 import React from "react";
 
 interface Props {
+  // when using firebase
+  // movie: Movie | DocumentData;
   movie: Movie;
 }
 
