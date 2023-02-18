@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [initialLoading, setInitialLoading] = useState(true);
   const router = useRouter();
 
-  // Persisting the user
+  // persisting the user
   useEffect(
     () =>
       onAuthStateChanged(auth, (user) => {
