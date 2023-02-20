@@ -6,13 +6,14 @@ import useAuth from "@/hooks/useAuth";
 import { GetStaticProps } from "next";
 import { getProducts, Product } from "@stripe/firestore-stripe-payments";
 import payments from "@/lib/stripe";
+import Membership from "@/components/Membership";
 
 interface Props {
   products: Product[];
 }
 
 const Account = ({ products }: Props) => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const subscription = useSubscription(user);
 
   console.log(products);
@@ -53,6 +54,8 @@ const Account = ({ products }: Props) => {
           </div>
         </div>
 
+        <Membership />
+
         <div className="mt-6 grid grid-cols-1 gap-x-4 border px-4 py-4 md:grid-cols-4 md:border-x-0 md:border-t md:border-b-0 md:px-0 md:pb-0">
           <h4>Plan Details</h4>
           <div>
@@ -67,9 +70,15 @@ const Account = ({ products }: Props) => {
           </p>
         </div>
 
-        {/* <div className="mt-6 grid grid-cols-1 gap-x-4 border px-4 py-4 md:grid-cols-4 md:border-x-0 md:border-t md:border-b-0 md:px-0 md:pb-0">
-          <h4></h4>
-        </div> */}
+        <div className="mt-6 grid grid-cols-1 gap-x-4 border px-4 py-4 md:grid-cols-4 md:border-x-0 md:border-t md:border-b-0 md:px-0 md:pb-0">
+          <h4 className="text-lg text-[gray]">Settings</h4>
+          <p
+            className="col-span-3 cursor-pointer text-blue-500 hover:underline"
+            onClick={logout}
+          >
+            Sign out on all devices
+          </p>
+        </div>
       </main>
     </div>
   );
