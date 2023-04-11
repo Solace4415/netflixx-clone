@@ -41,8 +41,6 @@ const Home = ({
   const showModal = useRecoilValue(modalState);
   const subscription = useSubscription(user);
 
-  console.log(subscription);
-
   if (loading || subscription === null) return null;
 
   if (!subscription) return <Plans products={products} />;
@@ -63,7 +61,6 @@ const Home = ({
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} />
           {/* My List */}
-
           <Row title="Comedies" movies={comedyMovies} />
           <Row title="Scary Movies" movies={horrorMovies} />
           <Row title="Romance Movies" movies={romanceMovies} />

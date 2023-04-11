@@ -16,8 +16,6 @@ const Account = ({ products }: Props) => {
   const { user, logout } = useAuth();
   const subscription = useSubscription(user);
 
-  console.log(products);
-
   return (
     <div className="">
       <Head>
@@ -58,7 +56,7 @@ const Account = ({ products }: Props) => {
 
         <div className="mt-6 grid grid-cols-1 gap-x-4 border px-4 py-4 md:grid-cols-4 md:border-x-0 md:border-t md:border-b-0 md:px-0 md:pb-0">
           <h4>Plan Details</h4>
-          <div>
+          <div className="col-span-2 font-medium">
             {
               products?.filter(
                 (product) => product.id === subscription?.product
